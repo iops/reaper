@@ -1,0 +1,59 @@
+{
+  "fixture_id": "RPR-CONF-010-vuln-002-openclaw",
+  "description": "Multiple servers with generic tool names causing namespace collision",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "openclaw",
+    "config": {
+      "mcp": {
+        "servers": {
+          "email-tools": {
+            "command": "npx email-mcp-server"
+          },
+          "slack-tools": {
+            "command": "npx slack-mcp-server"
+          }
+        }
+      }
+    },
+    "tools": [
+      {
+        "name": "send",
+        "server": "email-tools",
+        "description": "Send email message"
+      },
+      {
+        "name": "send",
+        "server": "slack-tools",
+        "description": "Send Slack message"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "email-tools",
+        "command": "npx email-mcp-server",
+        "tools": [
+          {
+            "name": "send"
+          }
+        ]
+      },
+      {
+        "name": "slack-tools",
+        "command": "npx slack-mcp-server",
+        "tools": [
+          {
+            "name": "send"
+          }
+        ]
+      }
+    ],
+    "system_prompt": "You are an assistant with access to email and messaging tools.",
+    "files": {
+      "config.json": "{\"mcp\": {\"servers\": {\"email-tools\": {\"command\": \"npx email-mcp-server\"}, \"slack-tools\": {\"command\": \"npx slack-mcp-server\"}}}}"
+    },
+    "metadata": {
+      "config_path": "config.json"
+    }
+  }
+}

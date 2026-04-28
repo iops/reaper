@@ -1,0 +1,38 @@
+{
+  "fixture_id": "RPR-CONF-010-safe-003-autogen",
+  "description": "Single MCP server configuration (no identity confusion possible)",
+  "expected": "safe",
+  "target": {
+    "framework": "autogen",
+    "config": {},
+    "tools": [
+      {
+        "name": "search",
+        "server": "database-server",
+        "description": "Search database"
+      },
+      {
+        "name": "query",
+        "server": "database-server",
+        "description": "Query database"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "database-server",
+        "command": "npx database-mcp-server",
+        "tools": [
+          {
+            "name": "search"
+          },
+          {
+            "name": "query"
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "fixture_id": "RPR-CONF-003-safe-003-mcp_generic",
+  "description": "Generic MCP with proper authentication and authorization",
+  "expected": "safe",
+  "target": {
+    "framework": "mcp_generic",
+    "config": {},
+    "tools": [
+      {
+        "name": "database_read",
+        "server": "db-server"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "db-server",
+        "transport": "sse",
+        "url": "https://db-mcp.example.com",
+        "auth": {
+          "type": "bearer",
+          "token": "$DB_READ_TOKEN",
+          "per_operation": true
+        }
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

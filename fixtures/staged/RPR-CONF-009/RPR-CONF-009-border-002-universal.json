@@ -1,0 +1,36 @@
+{
+  "fixture_id": "RPR-CONF-009-border-002-universal",
+  "description": "Tool names with common prefixes/suffixes where prompt mentions base capability",
+  "expected": "borderline",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "api-server",
+        "registry": {
+          "available": [
+            {
+              "identifier": "tool_query_database",
+              "type": "query"
+            },
+            {
+              "identifier": "tool_send_notification",
+              "type": "comm"
+            },
+            {
+              "identifier": "cmd_backup_data",
+              "type": "backup"
+            }
+          ]
+        }
+      }
+    ],
+    "system_prompt": "I can query information from databases and send notifications when needed.",
+    "files": {},
+    "metadata": {
+      "config_file": "server_config.json"
+    }
+  }
+}

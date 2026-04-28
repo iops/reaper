@@ -1,0 +1,69 @@
+{
+  "fixture_id": "RPR-CONF-006-safe-003-universal",
+  "description": "Minimal but sufficient configuration with session attribution",
+  "expected": "safe",
+  "target": {
+    "framework": "universal",
+    "config": {
+      "logging": {
+        "tool_calls": {
+          "enabled": true,
+          "fields": [
+            "tool_id",
+            "operation",
+            "parameters",
+            "timestamp",
+            "session_id",
+            "response_status"
+          ]
+        },
+        "storage": {
+          "mode": "protected",
+          "agent_write_access": false
+        }
+      },
+      "monitoring": {
+        "anomaly_detection": {
+          "enabled": true,
+          "categories": [
+            "unusual_tools",
+            "unusual_parameters",
+            "unusual_frequency",
+            "unusual_timing"
+          ]
+        }
+      },
+      "human_in_the_loop": {
+        "enabled": true,
+        "granularity": "operation",
+        "operations": [
+          "write",
+          "delete",
+          "execute"
+        ]
+      }
+    },
+    "tools": [
+      {
+        "name": "content_writer",
+        "operations": [
+          {
+            "name": "write"
+          }
+        ]
+      },
+      {
+        "name": "file_cleaner",
+        "operations": [
+          {
+            "name": "delete"
+          }
+        ]
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

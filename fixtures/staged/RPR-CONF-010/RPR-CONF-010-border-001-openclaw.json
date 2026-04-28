@@ -1,0 +1,58 @@
+{
+  "fixture_id": "RPR-CONF-010-border-001-openclaw",
+  "description": "Servers with mostly distinct names but one similar pair",
+  "expected": "borderline",
+  "target": {
+    "framework": "openclaw",
+    "config": {},
+    "tools": [
+      {
+        "name": "search",
+        "server": "primary-db",
+        "description": "Search primary database"
+      },
+      {
+        "name": "find",
+        "server": "backup-db",
+        "description": "Find records in backup"
+      },
+      {
+        "name": "calculate",
+        "server": "math-tools",
+        "description": "Perform calculations"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "primary-db",
+        "command": "npx primary-db-server",
+        "tools": [
+          {
+            "name": "search"
+          }
+        ]
+      },
+      {
+        "name": "backup-db",
+        "command": "npx backup-db-server",
+        "tools": [
+          {
+            "name": "find"
+          }
+        ]
+      },
+      {
+        "name": "math-tools",
+        "command": "npx math-server",
+        "tools": [
+          {
+            "name": "calculate"
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

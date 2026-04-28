@@ -1,0 +1,43 @@
+{
+  "fixture_id": "RPR-CONF-006-vuln-003-universal",
+  "description": "No HITL gates configured for sensitive operations",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {
+      "logging": {
+        "tool_calls": {
+          "enabled": true,
+          "fields": [
+            "tool_id",
+            "operation",
+            "parameters",
+            "timestamp",
+            "session_id",
+            "response_status"
+          ]
+        }
+      },
+      "human_in_the_loop": {
+        "enabled": false
+      }
+    },
+    "tools": [
+      {
+        "name": "system_admin",
+        "operations": [
+          {
+            "name": "execute_command"
+          },
+          {
+            "name": "write_config"
+          }
+        ]
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

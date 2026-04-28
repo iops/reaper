@@ -1,0 +1,49 @@
+{
+  "fixture_id": "RPR-CONF-003-safe-001-openclaw",
+  "description": "OpenClaw with proper per-tool authentication",
+  "expected": "safe",
+  "target": {
+    "framework": "openclaw",
+    "config": {
+      "workspace": "/home/user/agents/secure-assistant"
+    },
+    "tools": [
+      {
+        "name": "file_read",
+        "server": "file-server"
+      },
+      {
+        "name": "web_search",
+        "server": "search-server"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "file-server",
+        "command": "file-mcp-server",
+        "auth": {
+          "type": "bearer",
+          "token": "$FILE_SERVER_TOKEN",
+          "per_tool": true
+        }
+      },
+      {
+        "name": "search-server",
+        "command": "search-mcp-server",
+        "auth": {
+          "type": "oauth",
+          "oauth": {
+            "client_id": "$SEARCH_CLIENT_ID",
+            "scopes": [
+              "search.read"
+            ]
+          },
+          "per_operation": true
+        }
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

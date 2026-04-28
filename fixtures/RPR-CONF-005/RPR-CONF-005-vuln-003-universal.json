@@ -1,0 +1,47 @@
+{
+  "fixture_id": "RPR-CONF-005-vuln-003-universal",
+  "description": "HTTP tool without URL allowlist enabling unrestricted outbound connections",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [
+      {
+        "name": "webhook_tool",
+        "type": "http",
+        "description": "Send webhooks to external services",
+        "config": {
+          "method": "POST",
+          "timeout": 30
+        },
+        "inputSchema": {
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "Target URL"
+            },
+            "payload": {
+              "type": "object",
+              "description": "Data to send"
+            }
+          }
+        }
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "webhook_server",
+        "command": "mcp-webhook",
+        "auth": {
+          "type": "bearer",
+          "token": "$WEBHOOK_TOKEN"
+        }
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "./mcp_config.json"
+    }
+  }
+}

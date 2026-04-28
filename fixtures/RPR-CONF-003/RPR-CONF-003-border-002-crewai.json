@@ -1,0 +1,36 @@
+{
+  "fixture_id": "RPR-CONF-003-border-002-crewai",
+  "description": "CrewAI with slightly excessive but reasonable OAuth scopes",
+  "expected": "borderline",
+  "target": {
+    "framework": "crewai",
+    "config": {
+      "crew_name": "content_creator"
+    },
+    "tools": [
+      {
+        "name": "calendar_read",
+        "server": "google-cal"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "google-cal",
+        "command": "google-calendar-mcp",
+        "auth": {
+          "type": "oauth",
+          "oauth": {
+            "client_id": "$GOOGLE_CLIENT_ID",
+            "scopes": [
+              "https://www.googleapis.com/auth/calendar",
+              "https://www.googleapis.com/auth/calendar.events"
+            ]
+          }
+        }
+      }
+    ],
+    "system_prompt": "You help manage calendars and events.",
+    "files": {},
+    "metadata": {}
+  }
+}

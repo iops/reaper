@@ -1,0 +1,53 @@
+{
+  "fixture_id": "RPR-CONF-002-safe-002-openclaw",
+  "description": "OpenClaw skill with appropriate scope and input validation",
+  "expected": "safe",
+  "target": {
+    "framework": "openclaw",
+    "config": {
+      "workspace": "/home/user/workspace",
+      "gateway": {
+        "host": "localhost",
+        "port": 8080
+      }
+    },
+    "tools": [
+      {
+        "name": "text_analyzer",
+        "description": "Analyze text content for readability metrics",
+        "scope": [
+          "read:workspace"
+        ],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "maxLength": 10000,
+              "minLength": 1
+            },
+            "analysis_type": {
+              "type": "string",
+              "enum": [
+                "readability",
+                "sentiment",
+                "keywords"
+              ]
+            }
+          },
+          "required": [
+            "text",
+            "analysis_type"
+          ],
+          "additionalProperties": false
+        }
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": "You are a text analysis assistant.",
+    "files": {},
+    "metadata": {
+      "config_path": "~/.openclaw/config.json"
+    }
+  }
+}

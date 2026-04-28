@@ -1,0 +1,42 @@
+{
+  "fixture_id": "RPR-CONF-003-vuln-003-crewai",
+  "description": "CrewAI with server-level auth for multiple high-risk tools",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "crewai",
+    "config": {
+      "crew_name": "financial_analyst"
+    },
+    "tools": [
+      {
+        "name": "execute_trade",
+        "server": "trading-platform"
+      },
+      {
+        "name": "read_portfolio",
+        "server": "trading-platform"
+      },
+      {
+        "name": "transfer_funds",
+        "server": "trading-platform"
+      },
+      {
+        "name": "delete_account",
+        "server": "trading-platform"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "trading-platform",
+        "command": "trading-mcp-server",
+        "auth": {
+          "type": "bearer",
+          "token": "$TRADING_API_TOKEN"
+        }
+      }
+    ],
+    "system_prompt": "You are a financial analyst with trading capabilities.",
+    "files": {},
+    "metadata": {}
+  }
+}

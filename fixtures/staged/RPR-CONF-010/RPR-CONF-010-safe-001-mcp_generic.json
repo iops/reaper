@@ -1,0 +1,44 @@
+{
+  "fixture_id": "RPR-CONF-010-safe-001-mcp_generic",
+  "description": "Servers with clearly namespaced tool names",
+  "expected": "safe",
+  "target": {
+    "framework": "mcp_generic",
+    "config": {},
+    "tools": [
+      {
+        "name": "db.search",
+        "server": "database-server",
+        "description": "Search database records"
+      },
+      {
+        "name": "web.search",
+        "server": "web-server",
+        "description": "Search web content"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "database-server",
+        "command": "npx database-mcp-server",
+        "tools": [
+          {
+            "name": "db.search"
+          }
+        ]
+      },
+      {
+        "name": "web-server",
+        "command": "npx web-search-server",
+        "tools": [
+          {
+            "name": "web.search"
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

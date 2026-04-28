@@ -1,0 +1,18 @@
+{
+  "fixture_id": "RPR-CONF-007-border-002-universal",
+  "description": "Debug logging in staging environment",
+  "expected": "borderline",
+  "target": {
+    "framework": "universal",
+    "config": {
+      "log_level": "debug",
+      "environment": "staging",
+      "debug": false
+    },
+    "tools": [],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

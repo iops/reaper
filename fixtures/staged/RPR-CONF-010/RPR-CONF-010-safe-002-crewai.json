@@ -1,0 +1,44 @@
+{
+  "fixture_id": "RPR-CONF-010-safe-002-crewai",
+  "description": "Servers with completely distinct tool names",
+  "expected": "safe",
+  "target": {
+    "framework": "crewai",
+    "config": {},
+    "tools": [
+      {
+        "name": "calculate_metrics",
+        "server": "analytics-server",
+        "description": "Calculate business metrics"
+      },
+      {
+        "name": "fetch_weather",
+        "server": "weather-server",
+        "description": "Get weather data"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "analytics-server",
+        "command": "python -m analytics_mcp",
+        "tools": [
+          {
+            "name": "calculate_metrics"
+          }
+        ]
+      },
+      {
+        "name": "weather-server",
+        "command": "python -m weather_mcp",
+        "tools": [
+          {
+            "name": "fetch_weather"
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

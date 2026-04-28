@@ -1,0 +1,76 @@
+{
+  "fixture_id": "RPR-CONF-005-safe-001-universal",
+  "description": "Properly isolated MCP servers with unique tool names and separate credentials",
+  "expected": "safe",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "filesystem_server",
+        "command": "mcp-filesystem",
+        "tools": [
+          {
+            "name": "fs_read_file",
+            "type": "file",
+            "description": "Read files from filesystem"
+          },
+          {
+            "name": "fs_write_file",
+            "type": "file",
+            "description": "Write files to filesystem"
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "credential_store": "fs_vault",
+          "token": "$FS_TOKEN"
+        },
+        "egress_policy": {
+          "allowed_hosts": [
+            "localhost",
+            "internal.corp"
+          ],
+          "blocked_hosts": [
+            "*"
+          ]
+        }
+      },
+      {
+        "name": "database_server",
+        "command": "mcp-database",
+        "tools": [
+          {
+            "name": "db_query_data",
+            "type": "db",
+            "description": "Query database"
+          },
+          {
+            "name": "db_read_table",
+            "type": "db",
+            "description": "Read table data"
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "credential_store": "db_vault",
+          "token": "$DB_TOKEN"
+        },
+        "egress_policy": {
+          "allowed_hosts": [
+            "db.internal.corp"
+          ],
+          "blocked_hosts": [
+            "*"
+          ]
+        }
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "./mcp_config.json"
+    }
+  }
+}

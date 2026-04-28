@@ -1,0 +1,26 @@
+{
+  "fixture_id": "RPR-CONF-008-safe-003-universal",
+  "description": "Single tool with combined capabilities - no cross-tool escalation",
+  "expected": "safe",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [
+      {
+        "name": "file_manager",
+        "description": "Comprehensive file management tool",
+        "capabilities": [
+          "file_read",
+          "file_write",
+          "config_read",
+          "config_write"
+        ],
+        "scope": "filesystem_full_access"
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

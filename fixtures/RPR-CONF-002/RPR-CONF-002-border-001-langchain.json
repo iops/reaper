@@ -1,0 +1,58 @@
+{
+  "fixture_id": "RPR-CONF-002-border-001-langchain",
+  "description": "Tool with legitimately broad scope for database operations",
+  "expected": "borderline",
+  "target": {
+    "framework": "langchain",
+    "config": {
+      "agent_type": "structured_chat",
+      "llm": "gpt-4"
+    },
+    "tools": [
+      {
+        "name": "database_manager",
+        "description": "Comprehensive database operations including read, write, and schema management for multi-tenant application",
+        "scope": [
+          "read:database",
+          "write:database",
+          "schema:database"
+        ],
+        "args_schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "enum": [
+                "select",
+                "insert",
+                "update",
+                "create_table",
+                "alter_table"
+              ]
+            },
+            "table_name": {
+              "type": "string",
+              "pattern": "^[a-zA-Z_][a-zA-Z0-9_]*$",
+              "maxLength": 64
+            },
+            "query": {
+              "type": "string",
+              "maxLength": 1000
+            }
+          },
+          "required": [
+            "operation",
+            "table_name"
+          ],
+          "additionalProperties": false
+        }
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": "You are a database administration assistant.",
+    "files": {},
+    "metadata": {
+      "config_path": "agent_config.py"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "fixture_id": "RPR-CONF-010-border-001-autogen",
+  "description": "Mostly distinct names but one potential collision 'find' vs 'lookup'",
+  "expected": "borderline",
+  "target": {
+    "framework": "autogen",
+    "config": {
+      "function_map": {
+        "data-server": {
+          "methods": [
+            {
+              "name": "find_records",
+              "description": "Find database records"
+            },
+            {
+              "name": "create_entry",
+              "description": "Create new entry"
+            }
+          ]
+        },
+        "search-server": {
+          "commands": [
+            {
+              "name": "lookup_data",
+              "description": "Lookup information"
+            },
+            {
+              "name": "index_content",
+              "description": "Index content"
+            }
+          ]
+        }
+      }
+    },
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "data-server",
+        "command": [
+          "python",
+          "data.py"
+        ]
+      },
+      {
+        "name": "search-server",
+        "command": [
+          "node",
+          "search.js"
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "autogen_config.json"
+    }
+  }
+}

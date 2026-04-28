@@ -1,0 +1,35 @@
+{
+  "fixture_id": "RPR-CONF-002-vuln-002-openclaw",
+  "description": "OpenClaw tool missing scope declaration",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "openclaw",
+    "config": {
+      "workspace": "/home/user/workspace",
+      "gateway": {
+        "host": "localhost",
+        "port": 8080
+      }
+    },
+    "tools": [
+      {
+        "name": "database_query",
+        "description": "Query the customer database",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": "You are a helpful assistant.",
+    "files": {},
+    "metadata": {
+      "config_path": "~/.openclaw/config.json"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "fixture_id": "RPR-CONF-008-vuln-001-universal",
+  "description": "File read tool + API call tool enabling credential harvesting",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [
+      {
+        "name": "filesystem_reader",
+        "description": "Read files from the filesystem",
+        "capabilities": [
+          "file_read",
+          "env_read"
+        ],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "name": "api_caller",
+        "description": "Make HTTP API calls to external services",
+        "capabilities": [
+          "api_call",
+          "http_request"
+        ],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "headers": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

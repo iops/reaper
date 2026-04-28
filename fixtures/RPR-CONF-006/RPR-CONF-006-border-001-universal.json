@@ -1,0 +1,54 @@
+{
+  "fixture_id": "RPR-CONF-006-border-001-universal",
+  "description": "Partial logging with tool_id and timestamp but no parameters",
+  "expected": "borderline",
+  "target": {
+    "framework": "universal",
+    "config": {
+      "logging": {
+        "tool_calls": {
+          "enabled": true,
+          "fields": [
+            "tool_id",
+            "timestamp",
+            "session_id",
+            "response_status"
+          ]
+        }
+      },
+      "human_in_the_loop": {
+        "enabled": true,
+        "granularity": "operation",
+        "operations": [
+          "write_file",
+          "execute_command"
+        ]
+      }
+    },
+    "tools": [
+      {
+        "name": "file_manager",
+        "operations": [
+          {
+            "name": "write_file"
+          },
+          {
+            "name": "read_file"
+          }
+        ]
+      },
+      {
+        "name": "executor",
+        "operations": [
+          {
+            "name": "execute_command"
+          }
+        ]
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

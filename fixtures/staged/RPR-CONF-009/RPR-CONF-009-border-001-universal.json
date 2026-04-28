@@ -1,0 +1,27 @@
+{
+  "fixture_id": "RPR-CONF-009-border-001-universal",
+  "description": "System prompt mentions general capability domain but MCP has specific tools",
+  "expected": "borderline",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "file-ops",
+        "command": "file-server",
+        "functions": [
+          "file_create",
+          "file_delete",
+          "file_modify",
+          "file_backup"
+        ]
+      }
+    ],
+    "system_prompt": "I can help with file operations and document management tasks.",
+    "files": {},
+    "metadata": {
+      "agent_workspace": "/home/agent"
+    }
+  }
+}

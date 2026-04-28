@@ -1,0 +1,37 @@
+{
+  "fixture_id": "RPR-CONF-003-vuln-002-langchain",
+  "description": "LangChain MCP server with auth explicitly disabled",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "langchain",
+    "config": {
+      "agent_type": "structured_chat"
+    },
+    "tools": [
+      {
+        "name": "gmail_send",
+        "server": "google-services"
+      },
+      {
+        "name": "calendar_read",
+        "server": "google-services"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "google-services",
+        "command": "python",
+        "args": [
+          "-m",
+          "google_mcp_server"
+        ],
+        "auth": {
+          "type": "none"
+        }
+      }
+    ],
+    "system_prompt": "You are a helpful assistant with access to Google services.",
+    "files": {},
+    "metadata": {}
+  }
+}

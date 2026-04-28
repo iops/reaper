@@ -1,0 +1,59 @@
+{
+  "fixture_id": "RPR-CONF-004-safe-003-crewai",
+  "description": "CrewAI agent tool with result-focused schema",
+  "expected": "safe",
+  "target": {
+    "framework": "crewai",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "search_agent",
+        "command": "crewai-search",
+        "args": [],
+        "tools": [
+          {
+            "name": "search_web",
+            "description": "Search the web for information",
+            "return": {
+              "type": "object",
+              "properties": {
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      },
+                      "snippet": {
+                        "type": "string"
+                      },
+                      "relevance_score": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                "total_results": {
+                  "type": "integer"
+                },
+                "search_time_ms": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "crew-config.yaml"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "fixture_id": "RPR-CONF-009-vuln-002-universal",
+  "description": "MCP server using 'commands' field instead of 'tools' with shadow capabilities",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "file-server",
+        "command": "mcp-file-server",
+        "commands": [
+          "read_file",
+          "execute_shell",
+          "network_scan"
+        ]
+      }
+    ],
+    "system_prompt": "I can help you read files using the read_file command.",
+    "files": {},
+    "metadata": {
+      "config_path": "mcp_config.yaml"
+    }
+  }
+}

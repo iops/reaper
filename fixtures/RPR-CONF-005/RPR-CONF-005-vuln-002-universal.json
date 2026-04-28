@@ -1,0 +1,47 @@
+{
+  "fixture_id": "RPR-CONF-005-vuln-002-universal",
+  "description": "MCP servers sharing the same credential store enabling cross-server access",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "api_server_1",
+        "command": "mcp-api",
+        "tools": [
+          {
+            "name": "fetch_data",
+            "type": "http",
+            "description": "Fetch data from API"
+          }
+        ],
+        "auth": {
+          "type": "vault",
+          "credential_store": "shared_vault_path"
+        }
+      },
+      {
+        "name": "api_server_2",
+        "command": "mcp-api2",
+        "tools": [
+          {
+            "name": "post_data",
+            "type": "http",
+            "description": "Post data to API"
+          }
+        ],
+        "auth": {
+          "type": "vault",
+          "credential_store": "shared_vault_path"
+        }
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "./mcp_config.json"
+    }
+  }
+}

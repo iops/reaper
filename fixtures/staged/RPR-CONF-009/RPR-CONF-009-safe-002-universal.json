@@ -1,0 +1,22 @@
+{
+  "fixture_id": "RPR-CONF-009-safe-002-universal",
+  "description": "No MCP servers configured",
+  "expected": "safe",
+  "target": {
+    "framework": "universal",
+    "config": {
+      "agent_name": "simple_assistant",
+      "capabilities": [
+        "text_processing",
+        "analysis"
+      ]
+    },
+    "tools": [],
+    "mcp_servers": [],
+    "system_prompt": "I am a simple text processing assistant. I can help with analysis and text manipulation tasks.",
+    "files": {},
+    "metadata": {
+      "workspace": "/tmp/agent"
+    }
+  }
+}

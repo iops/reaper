@@ -1,0 +1,48 @@
+{
+  "fixture_id": "RPR-CONF-004-safe-002-openclaw",
+  "description": "OpenClaw skill with informational fields only",
+  "expected": "safe",
+  "target": {
+    "framework": "openclaw",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "weather_skill",
+        "command": "openclaw-weather",
+        "args": [],
+        "tools": [
+          {
+            "name": "get_weather",
+            "description": "Get current weather",
+            "outputFormat": {
+              "type": "object",
+              "properties": {
+                "temperature": {
+                  "type": "number"
+                },
+                "humidity": {
+                  "type": "number"
+                },
+                "conditions": {
+                  "type": "string"
+                },
+                "timestamp": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "~/.openclaw/config.json"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "fixture_id": "RPR-CONF-002-border-002-crewai",
+  "description": "Tool with minimal input constraints but legitimate use case",
+  "expected": "borderline",
+  "target": {
+    "framework": "crewai",
+    "config": {
+      "agents": [
+        {
+          "name": "content_creator",
+          "tools": [
+            "free_text_generator"
+          ],
+          "allow_delegation": false
+        }
+      ]
+    },
+    "tools": [
+      {
+        "name": "free_text_generator",
+        "description": "Generate creative content based on free-form prompts",
+        "scope": [
+          "generate:content"
+        ],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "prompt": {
+              "type": "string"
+            },
+            "style": {
+              "type": "string",
+              "enum": [
+                "formal",
+                "casual",
+                "creative",
+                "technical"
+              ]
+            }
+          },
+          "required": [
+            "prompt"
+          ],
+          "additionalProperties": false
+        }
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": "You are a creative writing assistant.",
+    "files": {},
+    "metadata": {
+      "config_path": "crew_config.yaml"
+    }
+  }
+}

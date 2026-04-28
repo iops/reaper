@@ -1,0 +1,33 @@
+{
+  "fixture_id": "RPR-CONF-007-vuln-003-universal",
+  "description": "Demo tool in production tool registry",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [
+      {
+        "name": "example_calculator",
+        "description": "A simple calculator for basic math operations",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string"
+            },
+            "a": {
+              "type": "number"
+            },
+            "b": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

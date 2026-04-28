@@ -1,0 +1,57 @@
+{
+  "fixture_id": "RPR-CONF-005-border-001-universal",
+  "description": "Semantic tool name collision (similar but not identical names)",
+  "expected": "borderline",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "server_a",
+        "command": "mcp-a",
+        "tools": [
+          {
+            "name": "read_file",
+            "type": "file",
+            "description": "Read files"
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "token": "$TOKEN_A"
+        },
+        "egress_policy": {
+          "allowed_hosts": [
+            "internal.corp"
+          ]
+        }
+      },
+      {
+        "name": "server_b",
+        "command": "mcp-b",
+        "tools": [
+          {
+            "name": "get_file",
+            "type": "file",
+            "description": "Get file contents"
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "token": "$TOKEN_B"
+        },
+        "egress_policy": {
+          "allowed_hosts": [
+            "internal.corp"
+          ]
+        }
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "./mcp_config.json"
+    }
+  }
+}

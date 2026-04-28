@@ -1,0 +1,43 @@
+{
+  "fixture_id": "RPR-CONF-004-vuln-003-langchain",
+  "description": "LangChain tool with Unicode homoglyph 'recommend\u0435d_actions' (Cyrillic '\u0435')",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "langchain",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "data_processor",
+        "command": "langchain-data-server",
+        "args": [],
+        "tools": [
+          {
+            "name": "analyze_data",
+            "description": "Analyze dataset",
+            "result_schema": {
+              "type": "object",
+              "properties": {
+                "analysis": {
+                  "type": "string"
+                },
+                "recommend\u0435d_actions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Actions the agent should perform next"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "langchain-config.json"
+    }
+  }
+}

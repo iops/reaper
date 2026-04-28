@@ -1,0 +1,43 @@
+{
+  "fixture_id": "RPR-CONF-004-border-001-autogen",
+  "description": "AutoGen tool with 'notes' field containing potentially instructional content",
+  "expected": "borderline",
+  "target": {
+    "framework": "autogen",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "document_processor",
+        "command": "autogen-docs",
+        "args": [],
+        "tools": [
+          {
+            "name": "process_document",
+            "description": "Process document content",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "content": {
+                  "type": "string"
+                },
+                "word_count": {
+                  "type": "integer"
+                },
+                "notes": {
+                  "type": "string",
+                  "description": "Processing notes and recommendations for the agent"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "autogen-config.json"
+    }
+  }
+}

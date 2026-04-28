@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Database
+data/
+
+# Next.js / Node
+.next/
+node_modules/
+frontend/.next/
+frontend/node_modules/
+
+# Environment
+.conda-env
+
+# OS
+.DS_Store
+
+# Local-only (not distributed with the package)
+*.local.md
+old-*.md
+.pipeline/
+reaper/pipeline/
+catalogue/
+reaper-wiki/
+rfc-*.md
+blackforge-*.md

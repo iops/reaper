@@ -1,0 +1,31 @@
+{
+  "fixture_id": "RPR-CONF-008-vuln-002-universal",
+  "description": "Database read tool + email tool enabling data exfiltration",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [
+      {
+        "name": "db_reader",
+        "description": "Read customer data from database",
+        "capabilities": [
+          "database_read"
+        ],
+        "scope": "read_only"
+      },
+      {
+        "name": "email_sender",
+        "description": "Send emails via SMTP",
+        "capabilities": [
+          "email_send"
+        ],
+        "scope": "external_communication"
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

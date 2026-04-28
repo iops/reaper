@@ -1,0 +1,44 @@
+{
+  "fixture_id": "RPR-CONF-007-safe-001-universal",
+  "description": "Properly configured production environment",
+  "expected": "safe",
+  "target": {
+    "framework": "universal",
+    "config": {
+      "debug": false,
+      "log_level": "info",
+      "environment": "production"
+    },
+    "tools": [
+      {
+        "name": "file_operations",
+        "description": "Secure file operations for document management",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string"
+            },
+            "file_path": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "prod-server",
+        "command": "node",
+        "args": [
+          "production-server.js"
+        ],
+        "debug": false,
+        "log_level": "info"
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

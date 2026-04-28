@@ -1,0 +1,28 @@
+{
+  "fixture_id": "RPR-CONF-006-vuln-001-universal",
+  "description": "No logging configuration present",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [
+      {
+        "name": "file_manager",
+        "operations": [
+          {
+            "name": "write_file"
+          },
+          {
+            "name": "delete_file"
+          }
+        ]
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "agent_config.json"
+    }
+  }
+}

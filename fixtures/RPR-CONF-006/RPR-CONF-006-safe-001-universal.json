@@ -1,0 +1,76 @@
+{
+  "fixture_id": "RPR-CONF-006-safe-001-universal",
+  "description": "Complete logging with attribution and HITL coverage",
+  "expected": "safe",
+  "target": {
+    "framework": "universal",
+    "config": {
+      "logging": {
+        "tool_calls": {
+          "enabled": true,
+          "fields": [
+            "tool_id",
+            "operation",
+            "parameters",
+            "timestamp",
+            "session_id",
+            "user_id",
+            "response_status"
+          ]
+        },
+        "storage": {
+          "mode": "append_only",
+          "agent_write_access": false
+        }
+      },
+      "monitoring": {
+        "anomaly_detection": {
+          "enabled": true,
+          "categories": [
+            "unusual_tools",
+            "unusual_parameters",
+            "unusual_frequency",
+            "unusual_timing"
+          ]
+        }
+      },
+      "human_in_the_loop": {
+        "enabled": true,
+        "granularity": "operation",
+        "operations": [
+          "write_file",
+          "delete_file",
+          "execute_command"
+        ]
+      }
+    },
+    "tools": [
+      {
+        "name": "file_manager",
+        "operations": [
+          {
+            "name": "write_file"
+          },
+          {
+            "name": "delete_file"
+          },
+          {
+            "name": "read_file"
+          }
+        ]
+      },
+      {
+        "name": "system_admin",
+        "operations": [
+          {
+            "name": "execute_command"
+          }
+        ]
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

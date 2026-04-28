@@ -1,0 +1,29 @@
+{
+  "fixture_id": "RPR-CONF-007-safe-003-universal",
+  "description": "Secure secret management with environment variables",
+  "expected": "safe",
+  "target": {
+    "framework": "universal",
+    "config": {
+      "api_key": "$API_KEY",
+      "database_url": "$DATABASE_URL",
+      "log_level": "info"
+    },
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "secure-server",
+        "command": "node",
+        "args": [
+          "server.js"
+        ],
+        "auth": {
+          "token": "$MCP_AUTH_TOKEN"
+        }
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "fixture_id": "RPR-CONF-010-border-002-langchain",
+  "description": "Servers with one generic name collision but otherwise distinct",
+  "expected": "borderline",
+  "target": {
+    "framework": "langchain",
+    "config": {},
+    "tools": [
+      {
+        "name": "get",
+        "server": "file-server",
+        "description": "Get file contents"
+      },
+      {
+        "name": "get",
+        "server": "api-server",
+        "description": "Get API data"
+      },
+      {
+        "name": "process_document",
+        "server": "doc-processor",
+        "description": "Process documents"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "file-server",
+        "command": "python -m file_mcp",
+        "tools": [
+          {
+            "name": "get"
+          }
+        ]
+      },
+      {
+        "name": "api-server",
+        "command": "python -m api_mcp",
+        "tools": [
+          {
+            "name": "get"
+          }
+        ]
+      },
+      {
+        "name": "doc-processor",
+        "command": "python -m doc_mcp",
+        "tools": [
+          {
+            "name": "process_document"
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

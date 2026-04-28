@@ -1,0 +1,37 @@
+{
+  "fixture_id": "RPR-CONF-002-vuln-001-mcp_generic",
+  "description": "MCP tool with wildcard scope declaration",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "mcp_generic",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "file-tools",
+        "command": "node",
+        "args": [
+          "/usr/local/bin/file-mcp-server"
+        ],
+        "tools": [
+          {
+            "name": "read_file",
+            "description": "Read contents of a file",
+            "scope": "*",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

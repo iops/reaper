@@ -1,0 +1,35 @@
+{
+  "fixture_id": "RPR-CONF-009-safe-001-universal",
+  "description": "All MCP server tools explicitly mentioned in system prompt",
+  "expected": "safe",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "file-tools",
+        "command": "mcp-file-server",
+        "tools": [
+          {
+            "name": "read_file",
+            "description": "Read file contents"
+          },
+          {
+            "name": "write_file",
+            "description": "Write file contents"
+          },
+          {
+            "name": "list_files",
+            "description": "List directory contents"
+          }
+        ]
+      }
+    ],
+    "system_prompt": "I can help you manage files. I have access to read_file, write_file, and list_files tools. I can read file contents using read_file, write new files using write_file, and list directory contents using list_files.",
+    "files": {},
+    "metadata": {
+      "config_path": "agent.json"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "fixture_id": "RPR-CONF-008-border-002-universal",
+  "description": "MCP servers with partial isolation configuration",
+  "expected": "borderline",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "secure_server",
+        "command": [
+          "node",
+          "secure-server.js"
+        ],
+        "isolation": {
+          "separate_process": true
+        }
+      },
+      {
+        "name": "legacy_server",
+        "command": [
+          "python",
+          "legacy-server.py"
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "fixture_id": "RPR-CONF-010-safe-002-openclaw",
+  "description": "Completely distinct tool names across servers",
+  "expected": "safe",
+  "target": {
+    "framework": "openclaw",
+    "config": {
+      "servers": {
+        "email-server": {
+          "tools": [
+            {
+              "name": "send_email",
+              "description": "Send email messages"
+            },
+            {
+              "name": "list_inbox",
+              "description": "List inbox messages"
+            }
+          ]
+        },
+        "file-server": {
+          "functions": [
+            {
+              "name": "upload_file",
+              "description": "Upload file to storage"
+            },
+            {
+              "name": "download_content",
+              "description": "Download file content"
+            }
+          ]
+        }
+      }
+    },
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "email-server",
+        "command": [
+          "node",
+          "email.js"
+        ]
+      },
+      {
+        "name": "file-server",
+        "command": [
+          "python",
+          "files.py"
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "~/.openclaw/config.json"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "fixture_id": "RPR-CONF-004-border-001-mcp_generic",
+  "description": "MCP tool with 'notes' field that could be instructional or informational",
+  "expected": "borderline",
+  "target": {
+    "framework": "mcp_generic",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "document-processor",
+        "command": [
+          "python",
+          "doc_processor.py"
+        ],
+        "tools": [
+          {
+            "name": "process_document",
+            "description": "Process document and return analysis",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "document": {
+                  "type": "string"
+                }
+              }
+            },
+            "responseSchema": {
+              "type": "object",
+              "properties": {
+                "summary": {
+                  "type": "string"
+                },
+                "key_points": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notes": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "mcp_config.json"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "fixture_id": "RPR-CONF-003-vuln-001-openclaw",
+  "description": "OpenClaw MCP server with no authentication configuration",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "openclaw",
+    "config": {
+      "workspace": "/home/user/agents/my-assistant"
+    },
+    "tools": [
+      {
+        "name": "file_read",
+        "server": "local-tools"
+      },
+      {
+        "name": "web_search",
+        "server": "local-tools"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "local-tools",
+        "command": "node",
+        "args": [
+          "/usr/local/bin/local-mcp-server"
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

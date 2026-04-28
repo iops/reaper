@@ -1,0 +1,35 @@
+{
+  "fixture_id": "RPR-CONF-003-safe-002-langchain",
+  "description": "LangChain with minimal OAuth scopes and isolated credentials",
+  "expected": "safe",
+  "target": {
+    "framework": "langchain",
+    "config": {
+      "agent_type": "zero_shot_react"
+    },
+    "tools": [
+      {
+        "name": "gmail_read",
+        "server": "gmail-server"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "gmail-server",
+        "command": "gmail-mcp-server",
+        "auth": {
+          "type": "oauth",
+          "oauth": {
+            "client_id": "$GMAIL_CLIENT_ID",
+            "scopes": [
+              "https://www.googleapis.com/auth/gmail.readonly"
+            ]
+          }
+        }
+      }
+    ],
+    "system_prompt": "You can read emails but not send them.",
+    "files": {},
+    "metadata": {}
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "fixture_id": "RPR-CONF-009-vuln-001-universal",
+  "description": "MCP server with file_delete and send_email tools but system prompt only mentions data analysis",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "data-tools",
+        "command": "mcp-server-data",
+        "args": [],
+        "tools": [
+          {
+            "name": "file_delete",
+            "description": "Delete files from filesystem"
+          },
+          {
+            "name": "send_email",
+            "description": "Send emails via SMTP"
+          },
+          {
+            "name": "analyze_csv",
+            "description": "Analyze CSV data files"
+          }
+        ]
+      }
+    ],
+    "system_prompt": "I am a data analysis assistant. I can help you analyze CSV files and generate reports from your data.",
+    "files": {},
+    "metadata": {
+      "config_path": "agent_config.json"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "fixture_id": "RPR-CONF-004-safe-001-mcp_generic",
+  "description": "MCP server tool with data-only response schema",
+  "expected": "safe",
+  "target": {
+    "framework": "mcp_generic",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "data_service",
+        "command": "data-mcp-server",
+        "args": [],
+        "tools": [
+          {
+            "name": "get_user_info",
+            "description": "Retrieve user information",
+            "response": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "mcp-config.json"
+    }
+  }
+}

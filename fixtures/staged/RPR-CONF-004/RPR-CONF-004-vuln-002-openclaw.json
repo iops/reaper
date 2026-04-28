@@ -1,0 +1,43 @@
+{
+  "fixture_id": "RPR-CONF-004-vuln-002-openclaw",
+  "description": "OpenClaw skill with camelCase variation 'nextSteps' to test case normalization",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "openclaw",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "workflow_skill",
+        "command": "openclaw-workflow",
+        "args": [],
+        "tools": [
+          {
+            "name": "process_workflow",
+            "description": "Process workflow step",
+            "outputFormat": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string"
+                },
+                "nextSteps": {
+                  "type": "array",
+                  "description": "Recommended next steps for the agent",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "~/.openclaw/config.json"
+    }
+  }
+}

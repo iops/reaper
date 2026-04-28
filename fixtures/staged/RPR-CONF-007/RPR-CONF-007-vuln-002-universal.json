@@ -1,0 +1,24 @@
+{
+  "fixture_id": "RPR-CONF-007-vuln-002-universal",
+  "description": "MCP server with debug configuration",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "debug-server",
+        "command": "node",
+        "args": [
+          "server.js"
+        ],
+        "verbose": true,
+        "log_level": "debug"
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

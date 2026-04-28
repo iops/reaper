@@ -1,0 +1,18 @@
+{
+  "fixture_id": "RPR-CONF-007-vuln-001-universal",
+  "description": "Configuration with debug mode enabled",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {
+      "debug": true,
+      "log_level": "info",
+      "environment": "production"
+    },
+    "tools": [],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

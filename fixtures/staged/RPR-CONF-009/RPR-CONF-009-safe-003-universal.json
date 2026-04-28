@@ -1,0 +1,51 @@
+{
+  "fixture_id": "RPR-CONF-009-safe-003-universal",
+  "description": "MCP tools declared in config allowlist match system prompt",
+  "expected": "safe",
+  "target": {
+    "framework": "universal",
+    "config": {
+      "allowed_tools": [
+        "weather_check",
+        "calendar_view",
+        "note_create"
+      ],
+      "tool_policy": "allowlist_only"
+    },
+    "tools": [
+      {
+        "name": "weather_check",
+        "description": "Check weather conditions"
+      },
+      {
+        "name": "calendar_view",
+        "description": "View calendar events"
+      },
+      {
+        "name": "note_create",
+        "description": "Create notes"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "productivity-server",
+        "tools": [
+          {
+            "name": "weather_check"
+          },
+          {
+            "name": "calendar_view"
+          },
+          {
+            "name": "note_create"
+          }
+        ]
+      }
+    ],
+    "system_prompt": "I can check weather using weather_check, view your calendar with calendar_view, and create notes using note_create.",
+    "files": {},
+    "metadata": {
+      "config_path": "agent_config.yaml"
+    }
+  }
+}

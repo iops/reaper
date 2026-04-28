@@ -1,0 +1,57 @@
+{
+  "fixture_id": "RPR-CONF-005-vuln-001-universal",
+  "description": "Multiple MCP servers with identical tool names causing namespace collision",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "filesystem_server",
+        "command": "mcp-filesystem",
+        "tools": [
+          {
+            "name": "read_file",
+            "type": "file",
+            "description": "Read files from filesystem"
+          },
+          {
+            "name": "write_file",
+            "type": "file",
+            "description": "Write files to filesystem"
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "token": "$FS_TOKEN"
+        }
+      },
+      {
+        "name": "database_server",
+        "command": "mcp-database",
+        "tools": [
+          {
+            "name": "read_file",
+            "type": "db",
+            "description": "Read files from database"
+          },
+          {
+            "name": "query_data",
+            "type": "db",
+            "description": "Query database"
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "token": "$DB_TOKEN"
+        }
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "./mcp_config.json"
+    }
+  }
+}

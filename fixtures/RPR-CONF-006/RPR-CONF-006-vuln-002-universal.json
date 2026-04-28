@@ -1,0 +1,36 @@
+{
+  "fixture_id": "RPR-CONF-006-vuln-002-universal",
+  "description": "Tool call logging missing required fields",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {
+      "logging": {
+        "tool_calls": {
+          "enabled": true,
+          "fields": [
+            "tool_id",
+            "timestamp"
+          ]
+        }
+      }
+    },
+    "tools": [
+      {
+        "name": "database_manager",
+        "operations": [
+          {
+            "name": "execute_query"
+          },
+          {
+            "name": "delete_records"
+          }
+        ]
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

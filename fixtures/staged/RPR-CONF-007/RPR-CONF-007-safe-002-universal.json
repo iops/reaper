@@ -1,0 +1,51 @@
+{
+  "fixture_id": "RPR-CONF-007-safe-002-universal",
+  "description": "Production tools with business functionality",
+  "expected": "safe",
+  "target": {
+    "framework": "universal",
+    "config": {
+      "environment": "production",
+      "log_level": "warn"
+    },
+    "tools": [
+      {
+        "name": "database_query",
+        "description": "Execute database queries for business intelligence",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "parameters": {
+              "type": "array"
+            }
+          }
+        }
+      },
+      {
+        "name": "api_client",
+        "description": "Make HTTP requests to external business APIs",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "data": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

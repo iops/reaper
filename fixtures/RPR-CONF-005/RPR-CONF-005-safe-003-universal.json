@@ -1,0 +1,46 @@
+{
+  "fixture_id": "RPR-CONF-005-safe-003-universal",
+  "description": "MCP servers with network egress restrictions and PII-filtered logging",
+  "expected": "safe",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "secure_server",
+        "command": "mcp-secure",
+        "tools": [
+          {
+            "name": "secure_operation",
+            "type": "custom",
+            "description": "Secure operation"
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "token": "$SECURE_TOKEN"
+        },
+        "egress_policy": {
+          "allowed_hosts": [
+            "logs.internal.corp"
+          ],
+          "blocked_hosts": [
+            "*"
+          ]
+        },
+        "logging": {
+          "external": {
+            "destination": "logs.internal.corp",
+            "pii_filter": true
+          }
+        }
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "./mcp_config.json"
+    }
+  }
+}

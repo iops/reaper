@@ -1,0 +1,37 @@
+{
+  "fixture_id": "RPR-CONF-002-vuln-003-langchain",
+  "description": "LangChain tool with read-only description but write scope",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "langchain",
+    "config": {
+      "agent_type": "structured_chat",
+      "llm": "gpt-4"
+    },
+    "tools": [
+      {
+        "name": "file_inspector",
+        "description": "Search and browse files in the workspace directory",
+        "scope": [
+          "read:files",
+          "write:files",
+          "delete:files"
+        ],
+        "args_schema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": "You are a file management assistant.",
+    "files": {},
+    "metadata": {
+      "config_path": "agent_config.py"
+    }
+  }
+}

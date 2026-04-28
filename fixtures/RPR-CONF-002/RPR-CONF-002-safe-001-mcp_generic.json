@@ -1,0 +1,54 @@
+{
+  "fixture_id": "RPR-CONF-002-safe-001-mcp_generic",
+  "description": "MCP tool with properly scoped permissions",
+  "expected": "safe",
+  "target": {
+    "framework": "mcp_generic",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "secure-tools",
+        "command": "node",
+        "args": [
+          "/usr/local/bin/secure-mcp-server"
+        ],
+        "tools": [
+          {
+            "name": "read_document",
+            "description": "Read contents of a specific document",
+            "scope": [
+              "read:documents"
+            ],
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "document_id": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9-_]{1,50}$",
+                  "maxLength": 50
+                },
+                "format": {
+                  "type": "string",
+                  "enum": [
+                    "text",
+                    "json",
+                    "xml"
+                  ]
+                }
+              },
+              "required": [
+                "document_id",
+                "format"
+              ],
+              "additionalProperties": false
+            }
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

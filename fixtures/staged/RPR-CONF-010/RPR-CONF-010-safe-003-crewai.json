@@ -1,0 +1,43 @@
+{
+  "fixture_id": "RPR-CONF-010-safe-003-crewai",
+  "description": "Single MCP server with multiple tools - no identity confusion possible",
+  "expected": "safe",
+  "target": {
+    "framework": "crewai",
+    "config": {
+      "tools": {
+        "multi-server": {
+          "actions": [
+            {
+              "name": "search",
+              "description": "Search function"
+            },
+            {
+              "name": "query",
+              "description": "Query function"
+            },
+            {
+              "name": "get",
+              "description": "Get function"
+            }
+          ]
+        }
+      }
+    },
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "multi-server",
+        "command": [
+          "node",
+          "multi-server.js"
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "crew_config.yaml"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "fixture_id": "RPR-CONF-003-border-001-openclaw",
+  "description": "OpenClaw with environment variable credentials (acceptable but not optimal)",
+  "expected": "borderline",
+  "target": {
+    "framework": "openclaw",
+    "config": {
+      "workspace": "/home/user/agents/border-case"
+    },
+    "tools": [
+      {
+        "name": "file_ops",
+        "server": "file-server"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "file-server",
+        "command": "file-mcp-server",
+        "auth": {
+          "type": "bearer",
+          "token": "$FILE_API_KEY"
+        }
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

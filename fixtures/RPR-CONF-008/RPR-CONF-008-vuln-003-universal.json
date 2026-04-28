@@ -1,0 +1,40 @@
+{
+  "fixture_id": "RPR-CONF-008-vuln-003-universal",
+  "description": "Multiple MCP servers with shared process configuration",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "file_server",
+        "command": [
+          "node",
+          "file-server.js"
+        ],
+        "shared_process": true
+      },
+      {
+        "name": "api_server",
+        "command": [
+          "python",
+          "api-server.py"
+        ],
+        "isolation": {
+          "separate_process": false
+        }
+      },
+      {
+        "name": "auth_server",
+        "command": [
+          "node",
+          "auth-server.js"
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

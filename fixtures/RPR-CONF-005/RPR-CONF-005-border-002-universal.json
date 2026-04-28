@@ -1,0 +1,58 @@
+{
+  "fixture_id": "RPR-CONF-005-border-002-universal",
+  "description": "HTTP tool with overly broad but not unrestricted allowlist",
+  "expected": "borderline",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [
+      {
+        "name": "broad_api_tool",
+        "type": "http",
+        "description": "Call various APIs",
+        "config": {
+          "allowed_domains": [
+            "*.googleapis.com",
+            "*.amazonaws.com",
+            "*.azure.com"
+          ],
+          "timeout": 30
+        },
+        "inputSchema": {
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "Target URL"
+            },
+            "method": {
+              "type": "string",
+              "description": "HTTP method"
+            }
+          }
+        }
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "broad_api_server",
+        "command": "mcp-broad-api",
+        "auth": {
+          "type": "bearer",
+          "token": "$API_TOKEN"
+        },
+        "egress_policy": {
+          "allowed_hosts": [
+            "*.googleapis.com",
+            "*.amazonaws.com",
+            "*.azure.com"
+          ]
+        }
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "./mcp_config.json"
+    }
+  }
+}

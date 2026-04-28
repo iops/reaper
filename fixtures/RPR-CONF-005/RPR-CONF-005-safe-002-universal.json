@@ -1,0 +1,56 @@
+{
+  "fixture_id": "RPR-CONF-005-safe-002-universal",
+  "description": "HTTP tools with strict URL allowlists preventing unauthorized connections",
+  "expected": "safe",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [
+      {
+        "name": "api_client",
+        "type": "http",
+        "description": "Call external APIs",
+        "config": {
+          "allowed_domains": [
+            "api.trusted.com",
+            "internal-api.corp"
+          ],
+          "timeout": 30
+        },
+        "inputSchema": {
+          "properties": {
+            "endpoint": {
+              "type": "string",
+              "description": "API endpoint"
+            },
+            "data": {
+              "type": "object",
+              "description": "Request data"
+            }
+          }
+        }
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "api_server",
+        "command": "mcp-api",
+        "auth": {
+          "type": "bearer",
+          "token": "$API_TOKEN"
+        },
+        "egress_policy": {
+          "allowed_hosts": [
+            "api.trusted.com",
+            "internal-api.corp"
+          ]
+        }
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "./mcp_config.json"
+    }
+  }
+}

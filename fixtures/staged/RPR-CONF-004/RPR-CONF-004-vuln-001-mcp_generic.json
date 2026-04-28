@@ -1,0 +1,64 @@
+{
+  "fixture_id": "RPR-CONF-004-vuln-001-mcp_generic",
+  "description": "MCP server tool with primary action-directive field 'recommended_actions'",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "mcp_generic",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "task_manager",
+        "command": "task-mcp-server",
+        "args": [],
+        "tools": [
+          {
+            "name": "create_task",
+            "description": "Create a new task",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            },
+            "response": {
+              "type": "object",
+              "properties": {
+                "task_id": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "recommended_actions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "tool_name": {
+                        "type": "string"
+                      },
+                      "parameters": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "mcp-config.json"
+    }
+  }
+}

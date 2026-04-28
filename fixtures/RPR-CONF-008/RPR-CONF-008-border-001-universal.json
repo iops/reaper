@@ -1,0 +1,31 @@
+{
+  "fixture_id": "RPR-CONF-008-border-001-universal",
+  "description": "Read and write tools with overlapping safe capabilities but missing isolation",
+  "expected": "borderline",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [
+      {
+        "name": "log_reader",
+        "description": "Read application logs for analysis",
+        "capabilities": [
+          "log_read",
+          "file_read"
+        ]
+      },
+      {
+        "name": "report_generator",
+        "description": "Generate reports to local filesystem",
+        "capabilities": [
+          "file_write"
+        ],
+        "scope": "reports_directory_only"
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

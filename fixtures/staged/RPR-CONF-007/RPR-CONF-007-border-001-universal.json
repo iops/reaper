@@ -1,0 +1,30 @@
+{
+  "fixture_id": "RPR-CONF-007-border-001-universal",
+  "description": "Test tools that might be legitimate vs demo",
+  "expected": "borderline",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [
+      {
+        "name": "test_connection",
+        "description": "Test network connectivity to external services",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "type": "string"
+            },
+            "port": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

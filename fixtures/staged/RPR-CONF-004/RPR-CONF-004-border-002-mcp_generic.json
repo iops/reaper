@@ -1,0 +1,49 @@
+{
+  "fixture_id": "RPR-CONF-004-border-002-mcp_generic",
+  "description": "MCP tool with 'guidance' field that could be informational or instructional",
+  "expected": "borderline",
+  "target": {
+    "framework": "mcp_generic",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "advisor_service",
+        "command": "advisor-mcp",
+        "args": [],
+        "tools": [
+          {
+            "name": "get_advice",
+            "description": "Get advice on a topic",
+            "response": {
+              "type": "object",
+              "properties": {
+                "topic": {
+                  "type": "string"
+                },
+                "advice_text": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "type": "number"
+                },
+                "guidance": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Additional guidance points"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {
+      "config_path": "mcp-config.json"
+    }
+  }
+}

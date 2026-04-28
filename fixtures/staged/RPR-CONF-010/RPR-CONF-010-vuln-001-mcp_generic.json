@@ -1,0 +1,52 @@
+{
+  "fixture_id": "RPR-CONF-010-vuln-001-mcp_generic",
+  "description": "Two MCP servers exposing identical 'search' tool",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "mcp_generic",
+    "config": {},
+    "tools": [
+      {
+        "name": "search",
+        "server": "database-server",
+        "description": "Search database records"
+      },
+      {
+        "name": "search",
+        "server": "web-server",
+        "description": "Search web content"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "database-server",
+        "command": "npx database-mcp-server",
+        "args": [
+          "--db-path",
+          "/data/db.sqlite"
+        ],
+        "tools": [
+          {
+            "name": "search"
+          }
+        ]
+      },
+      {
+        "name": "web-server",
+        "command": "npx web-search-server",
+        "args": [
+          "--api-key",
+          "$WEB_API_KEY"
+        ],
+        "tools": [
+          {
+            "name": "search"
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

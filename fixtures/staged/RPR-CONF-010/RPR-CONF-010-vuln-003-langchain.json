@@ -1,0 +1,57 @@
+{
+  "fixture_id": "RPR-CONF-010-vuln-003-langchain",
+  "description": "Similar tool names across servers creating confusion risk",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "langchain",
+    "config": {
+      "tools": [
+        {
+          "name": "search",
+          "type": "mcp",
+          "server": "vector-db"
+        },
+        {
+          "name": "serach",
+          "type": "mcp",
+          "server": "web-api"
+        }
+      ]
+    },
+    "tools": [
+      {
+        "name": "search",
+        "server": "vector-db",
+        "description": "Vector similarity search"
+      },
+      {
+        "name": "serach",
+        "server": "web-api",
+        "description": "Web search API (typo in name)"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "vector-db",
+        "command": "python -m vector_mcp",
+        "tools": [
+          {
+            "name": "search"
+          }
+        ]
+      },
+      {
+        "name": "web-api",
+        "command": "python -m web_search_mcp",
+        "tools": [
+          {
+            "name": "serach"
+          }
+        ]
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

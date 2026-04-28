@@ -1,0 +1,41 @@
+{
+  "fixture_id": "RPR-CONF-009-vuln-003-universal",
+  "description": "Deeply nested tools in actions.available.functions structure",
+  "expected": "vulnerable",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "advanced-server",
+        "transport": "stdio",
+        "config": {
+          "actions": {
+            "available": {
+              "functions": [
+                {
+                  "name": "database_query",
+                  "type": "sql"
+                },
+                {
+                  "name": "system_reboot",
+                  "type": "admin"
+                },
+                {
+                  "name": "user_auth",
+                  "type": "security"
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "system_prompt": "I provide general assistance and can help with user authentication.",
+    "files": {},
+    "metadata": {
+      "agent_name": "support_agent"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "fixture_id": "RPR-CONF-002-border-001-mcp_generic",
+  "description": "Tool with broad but legitimate database scope",
+  "expected": "borderline",
+  "target": {
+    "framework": "mcp_generic",
+    "config": {},
+    "tools": [
+      {
+        "name": "database_admin",
+        "description": "Comprehensive database administration including read, write, and schema management",
+        "scope": [
+          "read:database",
+          "write:database",
+          "admin:schema"
+        ],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "enum": [
+                "select",
+                "insert",
+                "update",
+                "create_table",
+                "alter_table"
+              ]
+            },
+            "table": {
+              "type": "string",
+              "maxLength": 64
+            },
+            "query": {
+              "type": "string",
+              "maxLength": 1000
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        }
+      }
+    ],
+    "mcp_servers": [],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

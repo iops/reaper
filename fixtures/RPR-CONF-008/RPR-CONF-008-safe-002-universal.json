@@ -1,0 +1,41 @@
+{
+  "fixture_id": "RPR-CONF-008-safe-002-universal",
+  "description": "MCP servers with proper process isolation",
+  "expected": "safe",
+  "target": {
+    "framework": "universal",
+    "config": {},
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "file_server",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "file-server"
+        ],
+        "isolation": {
+          "separate_process": true,
+          "shared_env": false
+        }
+      },
+      {
+        "name": "api_server",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "api-server"
+        ],
+        "isolation": {
+          "separate_process": true,
+          "container": true
+        }
+      }
+    ],
+    "system_prompt": null,
+    "files": {},
+    "metadata": {}
+  }
+}

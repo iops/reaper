@@ -1,0 +1,61 @@
+{
+  "fixture_id": "RPR-CONF-004-border-002-autogen",
+  "description": "AutoGen tool with 'guidance' field that may contain suggestions",
+  "expected": "borderline",
+  "target": {
+    "framework": "autogen",
+    "config": {
+      "agents": [
+        {
+          "name": "assistant",
+          "tools": [
+            "optimization-service"
+          ]
+        }
+      ]
+    },
+    "tools": [],
+    "mcp_servers": [
+      {
+        "name": "optimization-service",
+        "command": [
+          "python",
+          "optimizer.py"
+        ],
+        "tools": [
+          {
+            "name": "optimize_config",
+            "description": "Optimize configuration settings",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "current_config": {
+                  "type": "object"
+                }
+              }
+            },
+            "responseSchema": {
+              "type": "object",
+              "properties": {
+                "optimized_values": {
+                  "type": "object"
+                },
+                "performance_gain": {
+                  "type": "number"
+                },
+                "guidance": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "system_prompt": "You are an optimization assistant.",
+    "files": {},
+    "metadata": {
+      "config_path": "agent_config.json"
+    }
+  }
+}
